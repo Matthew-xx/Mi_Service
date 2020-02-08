@@ -28,6 +28,22 @@ func init() {
 	beego.Router("/user/userCenterSite",&controllers.UserController{},"get:ShowUserCenterSite;post:HandleUserCenterSite")
 	//商品详情展示
 	beego.Router("/goodsDetail",&controllers.GoodsController{},"get:ShowGoodsDetail")
+	//商品列表页
+	beego.Router("/goodsList",&controllers.GoodsController{},"get:ShowList")
+	//商品搜索
+	beego.Router("/goodsSearch",&controllers.GoodsController{},"post:HandleSearch")
+	//添加购物车
+	beego.Router("/user/addCart",&controllers.CartController{},"post:HandleAddCart")
+	//展示购物车页面
+	beego.Router("/user/cart",&controllers.CartController{},"get:ShowCart")
+	//更新购物车数量
+	beego.Router("/user/UpdateCart",&controllers.CartController{},"post:HandleUpdateCart")
+	//删除购物车数据
+	beego.Router("/user/deleteCart",&controllers.CartController{},"post:DeleteCart")
+	//展示订单页面
+	beego.Router("/user/showOrder",&controllers.OrderController{},"post:ShowOrder")
+	//添加订单
+	beego.Router("/user/addOrder",&controllers.OrderController{},"post:AddOrder")
 }
 
 //过滤器

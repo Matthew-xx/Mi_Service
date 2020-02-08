@@ -6,6 +6,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/utils"
+	"github.com/garyburd/redigo/redis"
 	"regexp"
 	"strconv"
 )
@@ -205,30 +206,32 @@ func (this *UserController) ShowUserCenterInfo()  {
 		this.Data["addr"] = addr
 	}
 
-	////获取历史浏览记录
-	//conn,err := redis.Dial("tcp","192.168.110.81:6379")
-	//defer conn.Close()
-	//if err != nil {
-	//	beego.Info("链接错误")
-	//}
-	//
-	////获取用户ID
-	//var user models.User
-	//user.Name = userName
-	//o.Read(&user,"Name")
-	//rep,err:=conn.Do("lrange","history_"+strconv.Itoa(user.Id),0,4)
-	////回复助手函数
-	//goodsIDs,_ := redis.Ints(rep,err)
-	//var goodsSKUs []models.GoodsSKU
-	//
-	//for _ ,value := range goodsIDs{
-	//	var goods models.GoodsSKU
-	//	goods.Id = value
-	//	o.Read(&goods)
-	//	goodsSKUs = append(goodsSKUs,goods)
-	//}
+	//获取历史浏览记录
+	conn,err := redis.Dial("tcp","192.168.99.100:6379")
+	defer conn.Close()
+	if err != nil {
+		beego.Info("链接错误")
+	}
 
-	//this.Data["goodsSKUs"] = goodsSKUs
+	//获取用户ID
+	var user models.User
+	user.Name = userName
+	o.Read(&user,"Name")
+	rep,err:=conn.Do("lrange","history_"+strconv.Itoa(user.Id),0,4) //lrange获取数据，0,4表示从0-4共获取5个数据
+	//Do返回的类型都是interface类型
+	//回复助手函数（强转函数
+	goodsIDs,_ := redis.Ints(rep,err)  //int切片类型（5个int放一起
+	//再通过id获取到商品信息
+	var goodsSKUs []models.GoodsSKU
+
+	for _ ,value := range goodsIDs{
+		var goods models.GoodsSKU
+		goods.Id = value
+		o.Read(&goods)
+		goodsSKUs = append(goodsSKUs,goods)
+	}
+	//beego.Info(goodsSKUs)
+	this.Data["goodsSKUs"] = goodsSKUs
 
 
 	this.Layout = "userCenterLayout.html"
