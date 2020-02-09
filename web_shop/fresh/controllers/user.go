@@ -7,6 +7,8 @@ import (
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/utils"
 	"github.com/garyburd/redigo/redis"
+	"log"
+	"math"
 	"regexp"
 	"strconv"
 )
@@ -242,37 +244,64 @@ func (this *UserController) ShowUserCenterInfo()  {
 func(this *UserController) ShowUserCenterOrder(){
 	userName := GetUser(&this.Controller)
 	this.Data["userName"] = userName
-	//o := orm.NewOrm()
-	//
-	//var user models.User
-	//user.Name = userName
-	//o.Read(&user,"Name")
-	//
-	//
-	//
-	//
-	////获取订单表的数据
-	//var orderInfos []models.OrderInfo
-	//o.QueryTable("OrderInfo").RelatedSel("User").Filter("User__Id",user.Id).All(&orderInfos)
-	//
-	//goodsBuffer := make([]map[string]interface{},len(orderInfos))
-	//
-	//for index,orderInfo := range orderInfos{
-	//
-	//	var orderGoods []models.OrderGoods
-	//	o.QueryTable("OrderGoods").RelatedSel("OrderInfo","GoodsSKU").Filter("OrderInfo__Id",orderInfo.Id).All(&orderGoods)
-	//
-	//	temp := make(map[string]interface{})
-	//	temp["orderInfo"] = orderInfo
-	//	temp["orderGoods"] = orderGoods
-	//
-	//	goodsBuffer[index] = temp
-	//
-	//}
-	//
-	//this.Data["goodsBuffer"] = goodsBuffer
+	o := orm.NewOrm()
 
-	//订单商品表
+	var user models.User
+	user.Name = userName
+	o.Read(&user,"Name")
+
+
+	//获取订单表的数据
+	var orderInfos []models.OrderInfo
+
+	// 分页处理
+	pageSize := 2
+	InfoCount, _ := o.QueryTable("OrderInfo").Filter("User__Id", user.Id).Count()
+	pageCount := int(math.Ceil(float64(InfoCount) / float64(pageSize)))
+	pageIndex, err := this.GetInt("pageIndex")
+	if err != nil {
+		log.Println("未获取到页码，默认第一页")
+		pageIndex = 1
+	}
+	if pageIndex > pageCount {
+		pageIndex = pageCount
+	}
+	start := (pageIndex - 1) * pageSize
+	o.QueryTable("OrderInfo").RelatedSel("User").Filter("User__Id",user.Id).OrderBy("-Time").Limit(pageSize, start).All(&orderInfos)
+
+	//分页按钮处理
+	prePage := pageIndex - 1
+	if prePage <= 1 {
+		prePage = 1
+	}
+	nextPage := pageIndex + 1
+	if nextPage > pageCount {
+		nextPage = pageCount
+	}
+	pages := PageTool(pageCount, pageIndex)
+	this.Data["pages"] = pages
+	this.Data["pageIndex"] = pageIndex
+	this.Data["prePage"] = prePage
+	this.Data["nextPage"] = nextPage
+
+	goodsBuffer := make([]map[string]interface{},len(orderInfos))
+
+	for index,orderInfo := range orderInfos{
+
+		var orderGoods []models.OrderGoods
+		o.QueryTable("OrderGoods").RelatedSel("OrderInfo","GoodsSKU").Filter("OrderInfo__Id",orderInfo.Id).All(&orderGoods)
+
+		temp := make(map[string]interface{})
+		temp["orderInfo"] = orderInfo
+		temp["orderGoods"] = orderGoods
+
+		goodsBuffer[index] = temp
+
+	}
+
+	this.Data["goodsBuffer"] = goodsBuffer
+
+	//获取订单商品表
 
 	this.Layout = "userCenterLayout.html"
 	this.TplName = "user_center_order.html"
@@ -342,3 +371,4 @@ func(this *UserController) HandleUserCenterSite(){
 	//返回视图
 	this.Redirect("/user/userCenterSite",302)
 }
+

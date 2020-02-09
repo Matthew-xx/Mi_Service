@@ -143,7 +143,7 @@
 		//地址的id ,支付方式的id ,商品的id  , 总价格 ,运费 , 实际价格
 		addrid = $('input[name="addr"]:checked').val()
 		payId = $('input[name="pay_style"]:checked').val()
-		skuids = $('#order_btn').attr("skuids")  //#获取a 标签
+		skuids = $('#order_btn').attr("skuids")  //#获取a 标签。只能获取到常规类型（整型，浮点型，字符串。。），组合类型无法获取（数组，map。。。
 
 
 
@@ -165,7 +165,7 @@
 						$('.popup_con').fadeOut('fast',function(){
 							window.location.href = '/user/userCenterOrder';
 						});
-					},2000)  //延迟3秒跳转页面
+					},800)  //延迟n秒跳转页面
 
 				});
 			}else {
