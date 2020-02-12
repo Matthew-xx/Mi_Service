@@ -1,7 +1,10 @@
 package main
 
 import (
+	"../Cryptography/Elliptic_curve"
+	"../Cryptography/RSAsigverify"
 	"../Cryptography/myRsa"
+	"fmt"
 )
 
 func main()  {
@@ -23,7 +26,7 @@ func main()  {
 	fmt.Printf("明文是：%s\n",plainText1)
 
 	 */
-/*
+
 	//rsa加解密
 	myRsa.GenerateRsaKey(2048)  //生成密钥对
 
@@ -31,6 +34,30 @@ func main()  {
 	cipherText := myRsa.RSAEncrypto(src,"public.pem")
 	plainText := myRsa.RSADecrypto(cipherText,"private.pem")
 	fmt.Println(string(plainText))
-*/
-	myRsa.MyHash()
+
+	//myRsa.MyHash()
+
+	/*
+	//消息认证码
+	src := []byte("something just like this")
+	key := []byte("mark")
+	hashMac := Mac.GenerateHmac(src,key)
+
+	hashMac2 := Mac.VerifyHmac(src,key,hashMac)
+	fmt.Printf("校验结果：%t\n",hashMac2)
+
+	 */
+
+	//RSA签名认证
+	//src := []byte("something just like this")
+	sigText := RSAsigverify.SignatureRSA(src,"private.pem")
+	sig_verify := RSAsigverify.VerifyRSA(src,sigText,"public.pem")
+	fmt.Printf("校验结果 %t\n",sig_verify)
+
+	//使用椭圆曲线生成密钥对
+	Elliptic_curve.GenerateEccKey()
+	//椭圆曲线签名验证
+	rText,sText :=Elliptic_curve.EccSignature(src,"eccPrivate.pem")
+	bl := Elliptic_curve.EccVerify(src,rText,sText,"eccPublic.pem")
+	fmt.Printf("校验结果 %t\n",bl)
 }
