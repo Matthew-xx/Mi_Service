@@ -1,0 +1,14 @@
+syntax = "proto3";
+package user;  // 声明所在包
+option go_package = "F:/Software/go_path/my_pro/Mi_Service/pro_package"; // 声明生成的 go 文件所属的包
+
+import "proto/user/message.proto";  // 导入同包内的其他 proto 文件
+import "proto/article/message.proto";  // 导入其他包的 proto 文件
+  
+message Person {  
+  string name = 1;
+  int32 age = 2;
+  string email = 3;
+  repeated int64 reps = 4;
+}  
+  
