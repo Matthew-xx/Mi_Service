@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package go.micro.srv.GetImageCd;
+
+service GetImageCd {
+	rpc Call(Request) returns (Response) {}
+}
+
+message Message {
+	string say = 1;
+}
+
+message Request {
+	string Uuid = 1;
+}
+
+message Response {
+    string Error = 1;
+	string Errmsg = 2;
+	// 图片对象的零件,层层递进的获取（因proto没有映射图像
+    bytes  Pix=3;        // Pix []uint8  图片结构元素
+    sint64  Stride=4;   // Stride int  图像的跨度
+    message Point{
+        sint64 X=1;
+        sint64 Y=2;
+    }                    // X, Y int   图片的坐标
+    Point Min=5;         // Rect Rectangle
+    Point Max=6;        // Min, Max Point
+}
+
+
