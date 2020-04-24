@@ -11,81 +11,91 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ihomeWeb/handler/handler.go">
+        <entry file="file://$PROJECT_DIR$/ihomeWeb/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2076">
-              <caret line="209" column="19" selection-start-line="209" selection-start-column="19" selection-end-line="209" selection-end-column="19" />
+            <state relative-caret-position="-396">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PostReg/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
-                <element signature="e#17#310#0" expanded="true" />
-                <element signature="e#312#1137#0" />
-                <element signature="n#!!block;n#GetIndex#0" />
+                <element signature="e#14#193#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PostReg/handler/PostReg.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1152">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ihomeWeb/main.go">
+        <entry file="file://$PROJECT_DIR$/ihomeWeb/handler/handler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+            <state relative-caret-position="272">
+              <caret line="315" column="12" lean-forward="true" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
+              <folding>
+                <element signature="n#!!block;n#GetArea#0" />
+                <element signature="n#!!block;n#GetSession#0" />
+                <element signature="n#!!block;n#GetIndex#0" />
+                <element signature="n#!!block;n#GetImageCode#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetImageCd/main.go">
+        <entry file="file://$PROJECT_DIR$/GetSmsCd/handler/GetSmsCd.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-507">
-              <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+            <state relative-caret-position="134">
+              <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetArea/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetArea/go.mod">
+        <entry file="file://$PROJECT_DIR$/PostReg/go.mod">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="82" />
+              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetImageCd/go.mod">
+        <entry file="file://$PROJECT_DIR$/GetSmsCd/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+            <state relative-caret-position="90">
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ihomeWeb/go.mod">
+        <entry file="file://$PROJECT_DIR$/PostReg/handler/go.mod">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="62" />
+            <state relative-caret-position="198">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="13" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GetImageCd/handler/GetImageCd.go">
+        <entry file="file://$PROJECT_DIR$/GetSmsCd/handler/go.mod">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-              <folding>
-                <element signature="e#17#129#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="108">
+              <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -115,26 +125,38 @@
         <option value="$PROJECT_DIR$/GetArea/main.go" />
         <option value="$PROJECT_DIR$/GetArea/handler/GetArea.go" />
         <option value="$PROJECT_DIR$/GetImageCd/proto/GetImageCd/GetImageCd.proto" />
-        <option value="$PROJECT_DIR$/ihomeWeb/main.go" />
         <option value="$PROJECT_DIR$/GetIndex/proto/GetIndex/GetIndex.proto" />
         <option value="$PROJECT_DIR$/GetSession/proto/GetSession/GetSession.proto" />
-        <option value="$PROJECT_DIR$/ihomeWeb/go.mod" />
         <option value="$PROJECT_DIR$/../../../Go/src/image/image.go" />
         <option value="$PROJECT_DIR$/../../pkg/mod/github.com/astaxie/beego@v1.12.1/utils/captcha/image.go" />
         <option value="$PROJECT_DIR$/../../pkg/mod/github.com/astaxie/beego@v1.12.1/utils/captcha/captcha.go" />
         <option value="$PROJECT_DIR$/GetImageCd/subscriber/GetImageCd.go" />
         <option value="$PROJECT_DIR$/GetImageCd/handler/go.mod" />
-        <option value="$PROJECT_DIR$/ihomeWeb/handler/go.mod" />
         <option value="$PROJECT_DIR$/GetImageCd/handler/GetImageCd.go" />
-        <option value="$PROJECT_DIR$/ihomeWeb/handler/handler.go" />
         <option value="$PROJECT_DIR$/GetImageCd/go.mod" />
         <option value="$PROJECT_DIR$/GetImageCd/main.go" />
+        <option value="$PROJECT_DIR$/GetSmsCd/proto/GetSmsCd/GetSmsCd.proto" />
+        <option value="$PROJECT_DIR$/GetSmsCd/subscriber/GetSmsCd.go" />
+        <option value="$PROJECT_DIR$/GetSmsCd/main.go" />
+        <option value="$PROJECT_DIR$/GetSmsCd/go.mod" />
+        <option value="$PROJECT_DIR$/GetSmsCd/handler/go.mod" />
+        <option value="$PROJECT_DIR$/PostReg/proto/PostReg/PostReg.proto" />
+        <option value="$PROJECT_DIR$/ihomeWeb/main.go" />
+        <option value="$PROJECT_DIR$/ihomeWeb/handler/go.mod" />
+        <option value="$PROJECT_DIR$/ihomeWeb/go.mod" />
+        <option value="$PROJECT_DIR$/ihomeWeb/handler/handler.go" />
+        <option value="$PROJECT_DIR$/PostReg/handler/go.mod" />
+        <option value="$PROJECT_DIR$/PostReg/handler/PostReg.go" />
+        <option value="$PROJECT_DIR$/PostReg/main.go" />
+        <option value="$PROJECT_DIR$/PostReg/go.mod" />
+        <option value="$PROJECT_DIR$/PostReg/subscriber/PostReg.go" />
+        <option value="$PROJECT_DIR$/GetSmsCd/handler/GetSmsCd.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="268" />
-    <option name="y" value="144" />
+    <option name="x" value="441" />
+    <option name="y" value="35" />
     <option name="width" value="797" />
     <option name="height" value="636" />
   </component>
@@ -151,6 +173,98 @@
               <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
+              <item name="GetSmsCd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
+              <item name="GetSmsCd" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
+              <item name="ihomeWeb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
+              <item name="ihomeWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
+              <item name="PostReg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mi_house" type="462c0819:PsiDirectoryNode" />
+              <item name="PostReg" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetArea/handler&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetArea/handler&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetArea&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetArea&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetImageCd/handler&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetImageCd/handler&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetImageCd&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/GetImageCd&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/ihomeWeb/models&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="Mi_house" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go Modules &lt;Mi_house/ihomeWeb/models&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -163,7 +277,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GetImageCd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../submail_go_sdk" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
@@ -186,15 +300,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Go Build.go build Mi_house/ihomeWeb">
-    <configuration name="go build Mi_house" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="Mi_house" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/" />
-      <package value="Mi_house" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
     <configuration name="go build Mi_house/GetArea" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Mi_house" />
       <working_directory value="$PROJECT_DIR$/GetArea" />
@@ -213,6 +318,24 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go build Mi_house/GetSmsCd" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Mi_house" />
+      <working_directory value="$PROJECT_DIR$/GetSmsCd" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="Mi_house/GetSmsCd" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build Mi_house/PostReg" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Mi_house" />
+      <working_directory value="$PROJECT_DIR$/PostReg" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="Mi_house/PostReg" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build Mi_house/ihomeWeb" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Mi_house" />
       <working_directory value="$PROJECT_DIR$/ihomeWeb" />
@@ -222,39 +345,30 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="Mi_house" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/ihomeWeb/main.go" />
-      <package value="Mi_house" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build Mi_house/ihomeWeb" />
+        <item itemvalue="Go Build.go build Mi_house/PostReg" />
+        <item itemvalue="Go Build.go build Mi_house/GetSmsCd" />
         <item itemvalue="Go Build.go build Mi_house/GetImageCd" />
         <item itemvalue="Go Build.go build Mi_house/GetArea" />
-        <item itemvalue="Go Build.go build Mi_house" />
-        <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2624811" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3502455" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.3502455" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3584288" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3584288" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -273,94 +387,6 @@
     <proxy>https://goproxy.cn</proxy>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/utils/misc.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/utils/error.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihome/handler/handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go.mod">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/conf/fdfs_client.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetArea111/handler/handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#17#159#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/plugin.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/utils/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="e#15#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/conf/data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetArea/generate.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GetArea/proto/GetArea/go.mod">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/booking.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/lorders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/my.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1078" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ihomeWeb/models/models.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -541,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/handler/go.mod">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GetImageCd/handler/go.mod">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -575,32 +594,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GetImageCd/main.go">
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/proto/GetSmsCd/GetSmsCd.proto">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-507">
-          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        <state relative-caret-position="180">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GetArea/main.go">
+    <entry file="file://$PROJECT_DIR$/ihomeWeb/html/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-        </state>
+        <state relative-caret-position="-930" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/go.mod">
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/proto/GetSmsCd/GetSmsCd.pb.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="62" />
-        </state>
+        <state relative-caret-position="-1134" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GetImageCd/go.mod">
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/proto/GetSmsCd/GetSmsCd.pb.micro.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
-        </state>
+        <state relative-caret-position="-648" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GetArea/go.mod">
@@ -610,22 +623,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ihomeWeb/handler/handler.go">
+    <entry file="file://$PROJECT_DIR$/GetArea/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2076">
-          <caret line="209" column="19" selection-start-line="209" selection-start-column="19" selection-end-line="209" selection-end-column="19" />
+        <state relative-caret-position="-324">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetImageCd/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="62" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/subscriber/GetSmsCd.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetImageCd/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihomeWeb/utils/error.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../pkg/mod/github.com/aliyun/alibaba-cloud-sdk-go@v0.0.0-20190808125512-07798873deee/services/dysmsapi/send_sms.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostReg/proto/PostReg/PostReg.proto">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihomeWeb/handler/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="69" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihomeWeb/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/handler/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostReg/handler/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="13" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostReg/subscriber/PostReg.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
           <folding>
-            <element signature="e#17#310#0" expanded="true" />
-            <element signature="e#312#1137#0" />
-            <element signature="n#!!block;n#GetIndex#0" />
+            <element signature="e#20#122#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostReg/go.mod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostReg/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#14#193#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostReg/handler/PostReg.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1152">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GetSmsCd/handler/GetSmsCd.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="94" column="30" lean-forward="true" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ihomeWeb/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+        <state relative-caret-position="-396">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ihomeWeb/handler/handler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="315" column="12" lean-forward="true" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!block;n#GetArea#0" />
+            <element signature="n#!!block;n#GetSession#0" />
+            <element signature="n#!!block;n#GetIndex#0" />
+            <element signature="n#!!block;n#GetImageCode#0" />
+          </folding>
         </state>
       </provider>
     </entry>

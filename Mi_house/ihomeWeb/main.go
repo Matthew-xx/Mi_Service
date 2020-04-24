@@ -41,6 +41,10 @@ func main() {
     rou.GET("/api/v1.0/house/index", handler.GetIndex)
     // 获取验证码图片
     rou.GET("/api/v1.0/imagecode/:uuid", handler.GetImageCode)
+    // 获取短信验证码
+    rou.GET("/api/v1.0/smscode/:mobile", handler.GetSmsCode)
+    // 提交注册表单
+    rou.POST("/api/v1.0/users", handler.PostReg)
 
 	// register html handler
 	//service.Handle("/", http.FileServer(http.Dir("html")))

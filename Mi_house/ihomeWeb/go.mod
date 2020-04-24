@@ -14,6 +14,10 @@ replace Mi_house/GetIndex/proto/GetIndex => F:\Software\go_path\src\Mi_house\Get
 
 replace Mi_house/GetSession/proto/GetSession => F:\Software\go_path\src\Mi_house\GetSession\proto\GetSession
 
+replace Mi_house/GetSmsCd/proto/GetSmsCd => F:\Software\go_path\src\Mi_house\GetSmsCd\proto\GetSmsCd
+
+replace Mi_house/PostReg/proto/PostReg => F:\Software\go_path\src\Mi_house\PostReg\proto\PostReg
+
 go 1.13
 
 require (
@@ -21,6 +25,8 @@ require (
 	Mi_house/GetImageCd/proto/GetImageCd v0.0.0-00010101000000-000000000000
 	Mi_house/GetIndex/proto/GetIndex v0.0.0-00010101000000-000000000000
 	Mi_house/GetSession/proto/GetSession v0.0.0-00010101000000-000000000000
+	Mi_house/GetSmsCd/proto/GetSmsCd v0.0.0-00010101000000-000000000000
+	Mi_house/PostReg/proto/PostReg v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/handler v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/models v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/utils v0.0.0-00010101000000-000000000000
