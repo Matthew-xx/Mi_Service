@@ -21,6 +21,12 @@ type PostReg struct{}
 // Call is a single request handler called via client.Call or the generated client code
 func (e *PostReg) CallPostReg(ctx context.Context, req *POSTREG.Request, rsp *POSTREG.Response) error {
 	beego.Info("发送注册表单 PostReg /api/v1.0/users")
+	/*
+	验证短信验证码
+	将数据存入数据库
+	创建sessionid
+	以sessionid为key的一部分创建session
+	 */
 	// 初始化返回
 	rsp.Error = utils.RECODE_OK
 	rsp.ErrMsg = utils.RecodeText(rsp.Error)
@@ -32,8 +38,6 @@ func (e *PostReg) CallPostReg(ctx context.Context, req *POSTREG.Request, rsp *PO
 	redisConf := map[string]string{
 		"key":      utils.G_server_name,
 		"conn":     utils.G_redis_addr + ":" + utils.G_redis_port,
-		"dbNum":    utils.G_redis_dbnum,
-		"password": utils.G_redis_auth,
 	}
 	// 将map转换为json
 	redisConfJSON, _ := json.Marshal(redisConf)

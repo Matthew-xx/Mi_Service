@@ -45,7 +45,12 @@ func main() {
     rou.GET("/api/v1.0/smscode/:mobile", handler.GetSmsCode)
     // 提交注册表单
     rou.POST("/api/v1.0/users", handler.PostReg)
-
+    // 提交登录请求
+    rou.POST("/api/v1.0/session", handler.PostSession)
+    // 退出登录请求
+    rou.DELETE("/api/v1.0/session", handler.DeleteSession)
+    // 获取用户信息
+    rou.GET("/api/v1.0/user", handler.GetUserInfo)
 	// register html handler
 	//service.Handle("/", http.FileServer(http.Dir("html")))
 

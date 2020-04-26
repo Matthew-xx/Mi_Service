@@ -87,12 +87,15 @@ func (e *GetSmsCd) CallGetSmsCd(ctx context.Context, req *GETSMSCD.Request, rsp 
 	// 	用户登录名称 sms@1909310674080489.onaliyun.com
 	// AccessKey ID LTAI4Fmft2zgUcC8FQNHeA8m
 	// AccessKeySecret fnu82dTJXYW94yTYLXM8eUn4xlflbi
+	//"SMS_174270094"
+	//"代码研习社"
+
 	client, err := dysmsapi.NewClientWithAccessKey("cn-hangzhou", "LTAI4Fmft2zgUcC8FQNHeA8m", "fnu82dTJXYW94yTYLXM8eUn4xlflbi")
 	request := dysmsapi.CreateSendSmsRequest()
 	request.Scheme = "https"
 
 	request.PhoneNumbers = mobile
-	request.SignName = "Mi_house"
+	request.SignName = "代码研习社"
 	request.TemplateCode = "SMS_174270094"
 	request.TemplateParam = "{\"code\":\"" + strconv.Itoa(SMScode) + "\"}"
 	response, err := client.SendSms(request)

@@ -4,17 +4,17 @@ import (
 	"context"
 	"github.com/micro/go-micro/util/log"
 
-	GetSession "Mi_house/GetSession/proto/GetSession"
+	GETSESSION "Mi_house/GetSession/proto/GetSession"
 )
 
 type GetSession struct{}
 
-func (e *GetSession) Handle(ctx context.Context, msg *GetSession.Message) error {
+func (e *GetSession) Handle(ctx context.Context, msg *GETSESSION.Message) error {
 	log.Log("Handler Received message: ", msg.Say)
 	return nil
 }
 
-func Handler(ctx context.Context, msg *GetSession.Message) error {
+func Handler(ctx context.Context, msg *GETSESSION.Message) error {
 	log.Log("Function Received message: ", msg.Say)
 	return nil
 }

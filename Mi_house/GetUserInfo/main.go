@@ -3,12 +3,12 @@ package main
 import (
 	"github.com/micro/go-micro/util/log"
 	"github.com/micro/go-micro"
-	"Mi_house/GetSession/handler"
-	"Mi_house/GetSession/subscriber"
-	"github.com/micro/go-plugins/registry/etcdv3"
+	"Mi_house/GetUserInfo/handler"
+	"Mi_house/GetUserInfo/subscriber"
 	"github.com/micro/go-micro/registry"
+	"github.com/micro/go-plugins/registry/etcdv3"
 
-	GetSession "Mi_house/GetSession/proto/GetSession"
+	GETUSERINFO "Mi_house/GetUserInfo/proto/GetUserInfo"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 	// New Service
 	service := micro.NewService(
 		micro.Registry(reg),
-		micro.Name("go.micro.srv.GetSession"),
+		micro.Name("go.micro.srv.GetUserInfo"),
 		micro.Version("latest"),
 	)
 
@@ -28,13 +28,13 @@ func main() {
 	service.Init()
 
 	// Register Handler
-	GetSession.RegisterGetSessionHandler(service.Server(), new(handler.GetSession))
+	GETUSERINFO.RegisterGetUserInfoHandler(service.Server(), new(handler.GetUserInfo))
 
 	// Register Struct as Subscriber
-	micro.RegisterSubscriber("go.micro.srv.GetSession", service.Server(), new(subscriber.GetSession))
+	micro.RegisterSubscriber("go.micro.srv.GetUserInfo", service.Server(), new(subscriber.GetUserInfo))
 
 	// Register Function as Subscriber
-	micro.RegisterSubscriber("go.micro.srv.GetSession", service.Server(), subscriber.Handler)
+	micro.RegisterSubscriber("go.micro.srv.GetUserInfo", service.Server(), subscriber.Handler)
 
 	// Run service
 	if err := service.Run(); err != nil {
