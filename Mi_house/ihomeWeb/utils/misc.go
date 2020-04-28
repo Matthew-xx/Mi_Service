@@ -22,9 +22,10 @@ func GetMd5String(s string) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-// 通过二进制流上传图片
+// 通过二进制流上传图片（参数为一个二进制和一个后缀
 func UploadByBuffer(fileBuffer []byte, fileExt string) (string, error) {
-	client, err := fdfs_client.NewClientWithConfig("../ihomeWeb/conf/fdfs_client.conf")
+	//绝对路径
+	client, err := fdfs_client.NewClientWithConfig("f:/Software/go_path/src/Mi_house/ihomeWeb/conf/fdfs_client.conf")
 	defer client.Destory()
 	if err != nil {
 		beego.Info("fdfs客户端创建失败", err)

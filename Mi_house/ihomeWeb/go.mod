@@ -24,6 +24,8 @@ replace Mi_house/DeleteSession/proto/DeleteSession => F:\Software\go_path\src\Mi
 
 replace Mi_house/GetUserInfo/proto/GetUserInfo => F:\Software\go_path\src\Mi_house\GetUserInfo\proto\GetUserInfo
 
+replace Mi_house/PostAvatar/proto/PostAvatar => F:\Software\go_path\src\Mi_house\PostAvatar\proto\PostAvatar
+
 go 1.13
 
 require (
@@ -34,6 +36,7 @@ require (
 	Mi_house/GetSession/proto/GetSession v0.0.0-00010101000000-000000000000
 	Mi_house/GetSmsCd/proto/GetSmsCd v0.0.0-00010101000000-000000000000
 	Mi_house/GetUserInfo/proto/GetUserInfo v0.0.0-00010101000000-000000000000
+	Mi_house/PostAvatar/proto/PostAvatar v0.0.0-00010101000000-000000000000
 	Mi_house/PostReg/proto/PostReg v0.0.0-00010101000000-000000000000
 	Mi_house/PostSession/proto/PostSession v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/handler v0.0.0-00010101000000-000000000000

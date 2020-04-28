@@ -51,6 +51,8 @@ func main() {
     rou.DELETE("/api/v1.0/session", handler.DeleteSession)
     // 获取用户信息
     rou.GET("/api/v1.0/user", handler.GetUserInfo)
+	// 上传用户头像
+	rou.POST("/api/v1.0/user/avatar", handler.PostAvatar)
 	// register html handler
 	//service.Handle("/", http.FileServer(http.Dir("html")))
 
