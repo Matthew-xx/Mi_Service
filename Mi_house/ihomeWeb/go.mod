@@ -32,6 +32,8 @@ replace Mi_house/GetUserHouses/proto/GetUserHouses => F:\Software\go_path\src\Mi
 
 replace Mi_house/PostHouses/proto/PostHouses => F:\Software\go_path\src\Mi_house\PostHouses\proto\PostHouses
 
+replace Mi_house/PostHousesImage/proto/PostHousesImage => F:\Software\go_path\src\Mi_house\PostHousesImage\proto\PostHousesImage
+
 go 1.13
 
 require (
@@ -45,6 +47,7 @@ require (
 	Mi_house/GetUserInfo/proto/GetUserInfo v0.0.0-00010101000000-000000000000
 	Mi_house/PostAvatar/proto/PostAvatar v0.0.0-00010101000000-000000000000
 	Mi_house/PostHouses/proto/PostHouses v0.0.0-00010101000000-000000000000
+	Mi_house/PostHousesImage/proto/PostHousesImage v0.0.0-00010101000000-000000000000
 	Mi_house/PostReg/proto/PostReg v0.0.0-00010101000000-000000000000
 	Mi_house/PostSession/proto/PostSession v0.0.0-00010101000000-000000000000
 	Mi_house/PostUserAuth/proto/PostUserAuth v0.0.0-00010101000000-000000000000
