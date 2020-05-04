@@ -28,6 +28,8 @@ replace Mi_house/PostAvatar/proto/PostAvatar => F:\Software\go_path\src\Mi_house
 
 replace Mi_house/PostUserAuth/proto/PostUserAuth => F:\Software\go_path\src\Mi_house\PostUserAuth\proto\PostUserAuth
 
+replace Mi_house/GetUserHouses/proto/GetUserHouses => F:\Software\go_path\src\Mi_house\GetUserHouses\proto\GetUserHouses
+
 require (
 	Mi_house/DeleteSession/proto/DeleteSession v0.0.0-00010101000000-000000000000
 	Mi_house/GetArea/proto/GetArea v0.0.0-00010101000000-000000000000
@@ -35,6 +37,7 @@ require (
 	Mi_house/GetIndex/proto/GetIndex v0.0.0-00010101000000-000000000000
 	Mi_house/GetSession/proto/GetSession v0.0.0-00010101000000-000000000000
 	Mi_house/GetSmsCd/proto/GetSmsCd v0.0.0-00010101000000-000000000000
+	Mi_house/GetUserHouses/proto/GetUserHouses v0.0.0-00010101000000-000000000000
 	Mi_house/GetUserInfo/proto/GetUserInfo v0.0.0-00010101000000-000000000000
 	Mi_house/PostAvatar/proto/PostAvatar v0.0.0-00010101000000-000000000000
 	Mi_house/PostReg/proto/PostReg v0.0.0-00010101000000-000000000000

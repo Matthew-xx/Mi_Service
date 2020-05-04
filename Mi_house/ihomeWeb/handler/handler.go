@@ -22,6 +22,7 @@ import (
 	GETINDEX "Mi_house/GetIndex/proto/GetIndex"
 	GETSESSION "Mi_house/GetSession/proto/GetSession"
 	GETSMSCD "Mi_house/GetSmsCd/proto/GetSmsCd"
+	GETUSERHOUSES "Mi_house/GetUserHouses/proto/GetUserHouses"
 	GETUSERINFO "Mi_house/GetUserInfo/proto/GetUserInfo"
 	POSTAVATAR "Mi_house/PostAvatar/proto/PostAvatar"
 	POSTREG "Mi_house/PostReg/proto/PostReg"
@@ -756,6 +757,77 @@ func PostUserAuth(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	response := map[string]interface{}{
 		"errno":  rsp.Error,
 		"errmsg": rsp.ErrMsg,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	return
+}
+
+// 获取用户房源
+func GetUserHouses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	beego.Info("获取用户房源 GetUserHousers /api/v1.0/user/houses")
+	// 从cookies中获取sessionID
+	cookie, err := r.Cookie("userlogin")
+	if err != nil || cookie.Value == "" {
+		// 说明用户本没有登录，返回对应信息即可
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			beego.Info("json转码错误", err)
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+	}
+	// 调用微服务
+	service := micro.NewService()
+	service.Init()
+	getUserHouses := GETUSERHOUSES.NewGetUserHousesService("go.micro.srv.GetUserHouses", service.Client())
+	rsp, err := getUserHouses.CallGetUserHouses(context.TODO(), &GETUSERHOUSES.Request{
+		//这里的数据结构对应服务中proto里面的request下的字段
+		SessionID: cookie.Value,
+	})
+	// 若发生错误
+	if err != nil {
+		beego.Info("RPC错误")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	//接收rsp中的二进制流,复杂数据类型传输，这里采用json的二进制流形式，
+	data := rsp.GetMix()
+	houseList := []models.House{}  //切片存储多个房源
+
+	err = json.Unmarshal(data, &houseList)
+	if err != nil {
+		beego.Info("json转码错误2", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	for _, house := range houseList {
+		beego.Info("请求到的房屋信息\n", house, house.Area)
+
+	}
+	// json接口文档要求格式为map包裹数组,这里得到的是个数组，
+	// 需要构造一个map，存入其键houses中
+	// 注意!!!不能直接回传[]models.House{}，此结构体中有指针，会丢失信息
+	// 使用工具函数解决
+	houseListJSON := []map[string]interface{}{}
+	for _, house := range houseList {
+		houseJSON := house.To_house_info()
+		houseListJSON = append(houseListJSON, houseJSON)
+	}
+	houses := make(map[string]interface{})
+	houses["houses"] = houseListJSON
+	response := map[string]interface{}{
+		"errno":  rsp.Error,
+		"errmsg": rsp.ErrMsg,
+		"data":   houses,
 	}
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(response); err != nil {
