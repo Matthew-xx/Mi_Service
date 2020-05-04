@@ -25,7 +25,7 @@ func (e *PostHousesImage) CallPostHousesImage(ctx context.Context, req *POSTHOUS
 	// 初始化回复
 	rsp.Error = utils.RECODE_OK
 	rsp.ErrMsg = utils.RecodeText(rsp.Error)
-	// 获取请求参数
+	// 获取请求参数(web端handler传过来的
 	fileExt := path.Ext(req.GetFileName())[1:]
 	fileSize := req.GetFileSize()
 	houseID, _ := strconv.Atoi(req.GetHouseID())
@@ -36,8 +36,6 @@ func (e *PostHousesImage) CallPostHousesImage(ctx context.Context, req *POSTHOUS
 	redisConf := map[string]string{
 		"key":      utils.G_server_name,
 		"conn":     utils.G_redis_addr + ":" + utils.G_redis_port,
-		"dbNum":    utils.G_redis_dbnum,
-		"password": utils.G_redis_auth,
 	}
 	// 将map转换为json
 	redisConfJSON, _ := json.Marshal(redisConf)

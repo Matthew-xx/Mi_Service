@@ -10,6 +10,7 @@ message Message {
 	string say = 1;
 }
 
+//发送给服务的参数
 message Request {
 	// 用户身份凭证
 	string SessionID = 1;
@@ -23,6 +24,7 @@ message Request {
 	string FileName=5;
 }
 
+//服务返回的数据
 message Response {
 	string Error = 1;
 	string ErrMsg=2;

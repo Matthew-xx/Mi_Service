@@ -34,11 +34,14 @@ replace Mi_house/PostHouses/proto/PostHouses => F:\Software\go_path\src\Mi_house
 
 replace Mi_house/PostHousesImage/proto/PostHousesImage => F:\Software\go_path\src\Mi_house\PostHousesImage\proto\PostHousesImage
 
+replace Mi_house/GetHouseInfo/proto/GetHouseInfo => F:\Software\go_path\src\Mi_house\GetHouseInfo\proto\GetHouseInfo
+
 go 1.13
 
 require (
 	Mi_house/DeleteSession/proto/DeleteSession v0.0.0-00010101000000-000000000000
 	Mi_house/GetArea/proto/GetArea v0.0.0-00010101000000-000000000000
+	Mi_house/GetHouseInfo/proto/GetHouseInfo v0.0.0-00010101000000-000000000000
 	Mi_house/GetImageCd/proto/GetImageCd v0.0.0-00010101000000-000000000000
 	Mi_house/GetIndex/proto/GetIndex v0.0.0-00010101000000-000000000000
 	Mi_house/GetSession/proto/GetSession v0.0.0-00010101000000-000000000000

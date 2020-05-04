@@ -16,6 +16,7 @@ import (
 	"net/http"
 	"reflect"
 	"regexp"
+	"strconv"
 
 	DELETESESSION "Mi_house/DeleteSession/proto/DeleteSession"
 	GETAREA "Mi_house/GetArea/proto/GetArea"
@@ -31,6 +32,7 @@ import (
 	POSTSESSION "Mi_house/PostSession/proto/PostSession"
 	POSTUSERAUTH "Mi_house/PostUserAuth/proto/PostUserAuth"
 	POSTHOUSESIMAGE "Mi_house/PostHousesImage/proto/PostHousesImage"
+	GETHOUSEINFO "Mi_house/GetHouseInfo/proto/GetHouseInfo"
 )
 
 /*
@@ -986,3 +988,66 @@ func PostHousesImage(w http.ResponseWriter, r *http.Request, ps httprouter.Param
 	return
 }
 
+// 获取房源详细信息
+func GetHouseInfo(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	beego.Info("获取房源详细信息 GetHouseInfo /api/v1.0/houses/:id")
+	// 获取房屋id
+	houseID := ps.ByName("id")
+	// 从cookies中获取sessionID
+	cookie, err := r.Cookie("userlogin")
+	if err != nil || cookie.Value == "" {
+		// 	// 说明用户本没有登录，返回对应信息即可
+		beego.Info("游客查询房源详细信息")
+		// 	response := map[string]interface{}{
+		// 		"errno":  utils.RECODE_SESSIONERR,
+		// 		"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		// 	}
+		// 	w.Header().Set("Content-Type", "application/json")
+		// 	if err := json.NewEncoder(w).Encode(response); err != nil {
+		// 		beego.Info("json转码错误")
+		// 		http.Error(w, err.Error(), 500)
+		// 		return
+		// 	}
+		// 	return
+	}
+	// 调用微服务
+	service := micro.NewService()
+	service.Init()
+	getHouseInfo := GETHOUSEINFO.NewGetHouseInfoService("go.micro.srv.GetHouseInfo", service.Client())
+	rsp, err := getHouseInfo.CallGetHouseInfo(context.TODO(), &GETHOUSEINFO.Request{
+		// SessionID: cookie.Value,
+		HouseID: houseID,
+	})
+	// 若发生错误
+	if err != nil {
+		beego.Info("RPC错误")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	//接收rsp中的房屋详情信息流
+	data := rsp.GetHouseInfoBytes()
+	house := new(models.House)
+
+	err = json.Unmarshal(data, &house)
+	if err != nil {
+		beego.Info("json转码错误")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	beego.Info("请求到的房屋信息\n", house.User, house.Area, house.Facilities)
+	houses := make(map[string]interface{})
+	houses["house"] = house.To_one_house_desc()
+	userID, _ := strconv.Atoi(rsp.GetUserID())
+	response := map[string]interface{}{
+		"errno":   rsp.Error,
+		"errmsg":  rsp.ErrMsg,
+		"data":    houses,
+		"user_id": userID,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	return
+}
