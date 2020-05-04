@@ -12,6 +12,7 @@ import (
 	"github.com/micro/go-micro"
 	"image"
 	"image/png"
+	"io/ioutil"
 	"net/http"
 	"reflect"
 	"regexp"
@@ -25,6 +26,7 @@ import (
 	GETUSERHOUSES "Mi_house/GetUserHouses/proto/GetUserHouses"
 	GETUSERINFO "Mi_house/GetUserInfo/proto/GetUserInfo"
 	POSTAVATAR "Mi_house/PostAvatar/proto/PostAvatar"
+	POSTHOUSES "Mi_house/PostHouses/proto/PostHouses"
 	POSTREG "Mi_house/PostReg/proto/PostReg"
 	POSTSESSION "Mi_house/PostSession/proto/PostSession"
 	POSTUSERAUTH "Mi_house/PostUserAuth/proto/PostUserAuth"
@@ -828,6 +830,61 @@ func GetUserHouses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) 
 		"errno":  rsp.Error,
 		"errmsg": rsp.ErrMsg,
 		"data":   houses,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	return
+}
+
+// 发布房源请求
+func PostHouses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	beego.Info("发布房源请求 PostHouses /api/v1.0/user/houses")
+	// 从cookies中获取sessionID
+	cookie, err := r.Cookie("userlogin")
+	if err != nil || cookie.Value == "" {
+		// 说明用户本没有登录，返回对应信息即可
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			beego.Info("json转码错误")
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+	}
+	// 从r中获取post表单得到字节流(将前端发送过来的数据整体读取，body是一个json的二进制流
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		beego.Info("表单获取失败")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	// 调用微服务
+	service := micro.NewService()
+	service.Init()
+	postHouses := POSTHOUSES.NewPostHousesService("go.micro.srv.PostHouses", service.Client())
+	rsp, err := postHouses.CallPostHouses(context.TODO(), &POSTHOUSES.Request{
+		SessionID: cookie.Value,
+		HouseInfo: body,
+	})
+	// 若发生错误
+	if err != nil {
+		beego.Info("RPC错误", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	data := map[string]string{}
+	data["house_id"] = rsp.GetHousID()
+	response := map[string]interface{}{
+		"errno":  rsp.Error,
+		"errmsg": rsp.ErrMsg,
+		"data":   data,
 	}
 	w.Header().Set("Content-Type", "application/json")
 	if err := json.NewEncoder(w).Encode(response); err != nil {
