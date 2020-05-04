@@ -3,7 +3,6 @@ package utils
 import (
 	"crypto/md5"
 	"encoding/hex"
-
 	"github.com/astaxie/beego"
 	"github.com/tedcy/fdfs_client"
 )
@@ -25,9 +24,10 @@ func GetMd5String(s string) string {
 // 通过二进制流上传图片（参数为一个二进制和一个后缀
 func UploadByBuffer(fileBuffer []byte, fileExt string) (string, error) {
 	//绝对路径
-	client, err := fdfs_client.NewClientWithConfig("f:/Software/go_path/src/Mi_house/ihomeWeb/conf/fdfs_client.conf")
+	client, err := fdfs_client.NewClientWithConfig("f:/Software/go_path/src/github.com/tedcy/fdfs_client/fdfs.conf")
 	defer client.Destory()
 	if err != nil {
+		//fmt.Println(err)
 		beego.Info("fdfs客户端创建失败", err)
 		return "", err
 	}

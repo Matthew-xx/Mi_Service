@@ -26,6 +26,8 @@ replace Mi_house/GetUserInfo/proto/GetUserInfo => F:\Software\go_path\src\Mi_hou
 
 replace Mi_house/PostAvatar/proto/PostAvatar => F:\Software\go_path\src\Mi_house\PostAvatar\proto\PostAvatar
 
+replace Mi_house/PostUserAuth/proto/PostUserAuth => F:\Software\go_path\src\Mi_house\PostUserAuth\proto\PostUserAuth
+
 go 1.13
 
 require (
@@ -39,6 +41,7 @@ require (
 	Mi_house/PostAvatar/proto/PostAvatar v0.0.0-00010101000000-000000000000
 	Mi_house/PostReg/proto/PostReg v0.0.0-00010101000000-000000000000
 	Mi_house/PostSession/proto/PostSession v0.0.0-00010101000000-000000000000
+	Mi_house/PostUserAuth/proto/PostUserAuth v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/handler v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/models v0.0.0-00010101000000-000000000000
 	Mi_house/ihomeWeb/utils v0.0.0-00010101000000-000000000000

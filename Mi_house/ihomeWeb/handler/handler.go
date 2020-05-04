@@ -16,16 +16,17 @@ import (
 	"reflect"
 	"regexp"
 
+	DELETESESSION "Mi_house/DeleteSession/proto/DeleteSession"
 	GETAREA "Mi_house/GetArea/proto/GetArea"
 	GETIMAGECD "Mi_house/GetImageCd/proto/GetImageCd"
 	GETINDEX "Mi_house/GetIndex/proto/GetIndex"
 	GETSESSION "Mi_house/GetSession/proto/GetSession"
 	GETSMSCD "Mi_house/GetSmsCd/proto/GetSmsCd"
-	POSTREG "Mi_house/PostReg/proto/PostReg"
-	POSTSESSION "Mi_house/PostSession/proto/PostSession"
-	DELETESESSION "Mi_house/DeleteSession/proto/DeleteSession"
 	GETUSERINFO "Mi_house/GetUserInfo/proto/GetUserInfo"
 	POSTAVATAR "Mi_house/PostAvatar/proto/PostAvatar"
+	POSTREG "Mi_house/PostReg/proto/PostReg"
+	POSTSESSION "Mi_house/PostSession/proto/PostSession"
+	POSTUSERAUTH "Mi_house/PostUserAuth/proto/PostUserAuth"
 )
 
 /*
@@ -634,3 +635,133 @@ func PostAvatar(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	}
 	return
 }
+
+// 获取用户实名认证状态
+func GetUserAuth(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	beego.Info("获取用户实名认证状态 GetUserAuth /api/v1.0/user/auth")
+	// 从cookies中获取sessionID
+	cookie, err := r.Cookie("userlogin")
+	if err != nil || cookie.Value == "" {
+		// 说明用户本没有登录，返回对应信息即可
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			beego.Info("json转码错误")
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+	}
+	// 调用微服务
+	service := micro.NewService()
+	service.Init()
+	getUserInfoService := GETUSERINFO.NewGetUserInfoService("go.micro.srv.GetUserInfo", service.Client())
+	rsp, err := getUserInfoService.CallGetUserInfo(context.TODO(), &GETUSERINFO.Request{
+		SessionID: cookie.Value,
+	})
+	// 若发生错误
+	if err != nil {
+		beego.Info("RPC错误")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	// 构造前端接受的data结构，接收rsp中的参数
+	data := make(map[string]interface{})
+	data["user_id"] = rsp.GetUserID()
+	data["name"] = rsp.GetName()
+	data["mobile"] = rsp.GetMobile()
+	data["real_name"] = rsp.GetRealName()
+	data["id_card"] = rsp.GetIDCard()
+	data["avatar_url"] = utils.AddDomain2Url(rsp.GetAvatarUrl())
+
+	response := map[string]interface{}{
+		"errno":  rsp.Error,
+		"errmsg": rsp.ErrMsg,
+		"data":   data,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	return
+}
+
+// 发送进行实名认证请求
+func PostUserAuth(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	beego.Info("发送进行实名认证请求 PostUserAuth /api/v1.0/user/auth")
+	// r中获取参数
+	data := make(map[string]string)
+	err := json.NewDecoder(r.Body).Decode(&data)
+	if err != nil {
+		beego.Info("json解码错误")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	for k, v := range data {
+		beego.Info(k, v)
+	}
+	// 从cookies中获取sessionID
+	cookie, err := r.Cookie("userlogin")
+	if err != nil || cookie.Value == "" {
+		// 说明用户本没有登录，返回对应信息即可
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_SESSIONERR,
+			"errmsg": utils.RecodeText(utils.RECODE_SESSIONERR),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			beego.Info("json转码错误")
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+	}
+
+	// 数据校验
+	// 是否为空
+	if data["real_name"] == "" || data["id_card"] == "" {
+		// 说明用户本没有登录，返回对应信息即可
+		response := map[string]interface{}{
+			"errno":  utils.RECODE_NODATA,
+			"errmsg": utils.RecodeText(utils.RECODE_NODATA),
+		}
+		w.Header().Set("Content-Type", "application/json")
+		if err := json.NewEncoder(w).Encode(response); err != nil {
+			beego.Info("json转码错误")
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		return
+	}
+	// 调用微服务
+	service := micro.NewService()
+	service.Init()
+	postUserAuthService := POSTUSERAUTH.NewPostUserAuthService("go.micro.srv.PostUserAuth", service.Client())
+	rsp, err := postUserAuthService.CallPostUserAuth(context.TODO(), &POSTUSERAUTH.Request{
+		SessionID: cookie.Value,
+		RealName:  data["real_name"],
+		IDCard:    data["id_card"],
+	})
+	// 若发生错误
+	if err != nil {
+		beego.Info("RPC错误")
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	response := map[string]interface{}{
+		"errno":  rsp.Error,
+		"errmsg": rsp.ErrMsg,
+	}
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	return
+}
+

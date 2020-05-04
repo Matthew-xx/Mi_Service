@@ -9,40 +9,26 @@ import (
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
 	"github.com/astaxie/beego/orm"
-	"github.com/gomodule/redigo/redis"
-	"path"
+	"github.com/garyburd/redigo/redis"
+	_ "github.com/gomodule/redigo/redis"
 	"reflect"
 
-	POSTAVATAR "Mi_house/PostAvatar/proto/PostAvatar"
+	POSTUSERAUTH "Mi_house/PostUserAuth/proto/PostUserAuth"
 )
 
-type PostAvatar struct{}
+type PostUserAuth struct{}
 
 // Call is a single request handler called via client.Call or the generated client code
-func (e *PostAvatar) CallPostAvatar(ctx context.Context, req *POSTAVATAR.Request, rsp *POSTAVATAR.Response) error {
-	beego.Info("上传用户头像 PostAvatar /api/v1.0/user/avatar")
-	// 初始化返回值rsp
+func (e *PostUserAuth) CallPostUserAuth(ctx context.Context, req *POSTUSERAUTH.Request, rsp *POSTUSERAUTH.Response) error {
+	beego.Info("发送进行实名认证请求 PostUserAuth /api/v1.0/user/auth")
+
+	// 1初始化回复
 	rsp.Error = utils.RECODE_OK
 	rsp.ErrMsg = utils.RecodeText(rsp.Error)
-
-	// 获取req参数，并校验
-	filebuf := req.GetAvatar()
-	fileName := req.GetFileExt()
-	fileSize := req.GetFileSize()
+	// 2获取请求参数
 	sessionID := req.GetSessionID()
-	// 文件完整性校验
-	if len(filebuf) != int(fileSize) {
-		beego.Info("传输数据丢失")
-		rsp.Error = utils.RECODE_DATAERR
-		rsp.ErrMsg = utils.RecodeText(rsp.Error)
-		return nil
-	}
-	// 获取文件拓展名,不要点
-	ext := path.Ext(fileName)[1:]
-
-	// 校验完毕，开始上传
-	filed, err := utils.UploadByBuffer(filebuf, ext)
-	beego.Info("图片上传返回结果：", filed)
+	realName := req.GetRealName()
+	IDcard := req.GetIDCard()
 
 	// 读取redis链接配置
 	redisConf := map[string]string{
@@ -51,7 +37,7 @@ func (e *PostAvatar) CallPostAvatar(ctx context.Context, req *POSTAVATAR.Request
 	}
 	// 将map转换为json
 	redisConfJSON, _ := json.Marshal(redisConf)
-	// 开始链接redis
+	// 3开始链接redis
 	bm, err := cache.NewCache("redis", string(redisConfJSON))
 	if err != nil {
 		beego.Info("缓存查询失败", err)
@@ -59,7 +45,7 @@ func (e *PostAvatar) CallPostAvatar(ctx context.Context, req *POSTAVATAR.Request
 		rsp.ErrMsg = utils.RecodeText(rsp.Error)
 		return err
 	}
-	//获取userid
+	// 4验证sessionID，并得到id
 	reply := bm.Get(sessionID + "user_id")
 	if reply == nil {
 		beego.Info("缓存查询结果为空")
@@ -75,23 +61,17 @@ func (e *PostAvatar) CallPostAvatar(ctx context.Context, req *POSTAVATAR.Request
 		rsp.ErrMsg = utils.RecodeText(rsp.Error)
 		return err
 	}
-	beego.Info("用户id,session", id, sessionID)
-	/// 通过用户id更新用户头像字段数据
-	user := models.User{
-		Id:         id,
-		Avatar_url: filed,
-	}
+	//5通过用户id更新用户相关数据
+	user := models.User{Id: id, Real_name: realName, Id_card: IDcard}
 	o := orm.NewOrm()
-	//更新字段
-	_, err = o.Update(&user, "Avatar_url")
+	_, err = o.Update(&user, "Real_name", "Id_card")
 	if err != nil {
-		beego.Info("数据库更新错误", err)
+		beego.Info("数据库更新失败", err)
 		rsp.Error = utils.RECODE_DBERR
 		rsp.ErrMsg = utils.RecodeText(rsp.Error)
 		return err
 	}
-	beego.Info("头像url已存储")
-	// 返回前端数据
-	rsp.AvatarUrl = filed
+	beego.Info("实名信息更新成功", user)
 	return nil
 }
+
