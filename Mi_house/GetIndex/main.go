@@ -5,13 +5,21 @@ import (
 	"github.com/micro/go-micro"
 	"Mi_house/GetIndex/handler"
 	"Mi_house/GetIndex/subscriber"
+	"github.com/micro/go-micro/registry"
+	"github.com/micro/go-plugins/registry/etcdv3"
 
 	GetIndex "Mi_house/GetIndex/proto/GetIndex"
 )
 
 func main() {
+	reg := etcdv3.NewRegistry(func(op *registry.Options){
+		op.Addrs = []string{
+			"127.0.0.1:2379",
+		}
+	})
 	// New Service
 	service := micro.NewService(
+		micro.Registry(reg),
 		micro.Name("go.micro.srv.GetIndex"),
 		micro.Version("latest"),
 	)
