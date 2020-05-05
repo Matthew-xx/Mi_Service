@@ -53,6 +53,8 @@ func main() {
     rou.GET("/api/v1.0/user", handler.GetUserInfo)
 	// 上传用户头像
 	rou.POST("/api/v1.0/user/avatar", handler.PostAvatar)
+    // 更新用户名
+    rou.PUT("/api/v1.0/user/name", handler.PutUserInfo)
     // 获取用户实名状态
     rou.GET("/api/v1.0/user/auth", handler.GetUserAuth)
     // 发送进行实名认证请求
